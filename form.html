@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      window.onload = function () {
+        let form = document.getElementById("form");
+        let userName = document.getElementById("username");
+        let idName = document.getElementById("idName");
+        form.addEventListener("submit", function (event) {
+          console.log(event);
+          event.preventDefault();
+          let id = document.getElementById("inputId").value;
+          let passwd = document.getElementById("passwd").value;
+          console.log(id, passwd);
+          userName.innerText = "유저 명 : 정상현";
+          idName.innerText = "아이디 : " + id;
+        });
+
+        $("#id").click(function () {});
+      };
+    </script>
+  </head>
+  <body>
+    <div style="display: flex; flex-direction: row">
+      <form action="#" id="form">
+        <input type="text" id="inputId" placeholder="아이디를 입력하세요" />
+        <input
+          type="password"
+          id="passwd"
+          placeholder="비밀번호를 입력하세요"
+        />
+        <button type="submit">로그인</button>
+      </form>
+      <div>
+        <span id="username"></span>
+        <span id="idName"></span>
+      </div>
+    </div>
+  </body>
+</html>

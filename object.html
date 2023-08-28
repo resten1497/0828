@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let obj = [{ title: "", value: "abab" }];
+
+      function addTodoList() {
+        obj.push({ title: "", value: "" });
+
+        console.log(obj);
+      }
+      function removeTodoList() {
+        obj = obj.filter((item) => item.value != "abab");
+        console.log(obj);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="addTodoList()">123</button>
+    <button onclick="removeTodoList()">123</button>
+    <div class="data"></div>
+  </body>
+</html>

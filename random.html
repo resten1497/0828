@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link id="style" rel="stylesheet" href="./style/style.css" />
+    <title>Document</title>
+    <script>
+      function BtnClick(e) {
+        console.log(e);
+        let nameSpace = document.getElementById("nameSpace");
+        let result = document.getElementById("result");
+        let nameList = nameSpace.value.trim().split("\n");
+        //console.log(nameList[1]);
+        let resultText = "";
+
+        const teams = createTeams(nameList);
+        teams.map((item, index) => {
+          //console.log(item);
+
+          resultText += index + 1 + "조" + "\n" + item + "\n";
+        });
+        result.innerText = resultText;
+        //console.log(teams);
+      }
+      function createTeams(memberList) {
+        let teams = [];
+        let shuffledMembers = memberList
+          .slice()
+          .sort(() => Math.random() - 0.5);
+        //console.log(shuffledMembers);
+        for (let i = 0; i < memberList.length; i += 2) {
+          let team = [shuffledMembers[i], shuffledMembers[i + 1]];
+
+          teams.push(team);
+        }
+        return teams;
+      }
+      window.onload = function () {};
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <textarea id="nameSpace"></textarea>
+      <button id="btn" onclick="BtnClick(event)">랜덤으로 돌리기</button>
+    </div>
+    <div id="result"></div>
+  </body>
+</html>

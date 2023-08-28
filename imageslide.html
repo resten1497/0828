@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .slider-container {
+        width: 500px;
+        overflow: hidden;
+      }
+
+      .slider {
+        display: flex;
+        height: 100px;
+        width: 1500px; /* 슬라이드의 개수에 따라 조정 */
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .slide {
+        width: 500px; /* 슬라이드 너비를 정확하게 설정 */
+      }
+
+      .prev-btn,
+      .next-btn {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide" style="background-color: red">1</div>
+        <div class="slide" style="background-color: blue">2</div>
+        <div class="slide" style="background-color: green">3</div>
+      </div>
+    </div>
+    <script>
+      const slider = document.querySelector(".slider");
+      const slides = document.querySelectorAll(".slide");
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        slider.style.transform = `translateX(-${index * 500}px)`;
+      }
+
+      function nextSlide() {
+        if (currentIndex == 2) {
+          currentIndex = 0;
+        } else {
+          currentIndex = currentIndex + 1;
+        }
+        showSlide(currentIndex);
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1) % slides.length;
+        showSlide(currentIndex);
+      }
+
+      setInterval(nextSlide, 3000); // 자동 슬라이드를 위한 타이머 설정
+
+      showSlide(currentIndex); // 초기 슬라이드 표시
+
+      // 화살표 클릭 이벤트 처리
+      //document.querySelector(".next-btn").addEventListener("click", nextSlide);
+      //document.querySelector(".prev-btn").addEventListener("click", prevSlide);
+    </script>
+  </body>
+</html>

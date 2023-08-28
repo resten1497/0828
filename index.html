@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function clickBtn() {
+        console.log(this);
+        console.log("click");
+      }
+      window.onload = function () {
+        let col = document.getElementsByClassName("col");
+        //console.log(col);
+        let btn = document.getElementById("btn");
+        btn.addEventListener("click", function () {
+          console.log("asdf");
+        });
+        btn.addEventListener("focus", function () {
+          console.log("focus");
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <div class="col">Hello</div>
+    <button id="btn1" onclick="clickBtn()">Click</button>
+    <button id="btn">Click</button>
+    <a href="#">asd</a>
+  </body>
+</html>
